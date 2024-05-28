@@ -1,0 +1,34 @@
+[package]
+name = "jwtk-fuzz"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+jwtk = { path = ".." }
+serde_json = "1.0.117"
+
+[[bin]]
+name = "ecdsa_sign"
+path = "fuzz_targets/ecdsa_sign.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "ecdsa_verify"
+path = "fuzz_targets/ecdsa_verify.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "eddsa_verify"
+path = "fuzz_targets/eddsa_verify.rs"
+test = false
+doc = false
+bench = false
